@@ -61,7 +61,6 @@ void setup() {
 
 
 //added
-int mq135 = A0; // smoke sensor is connected with the analog pin A0 
 int data = 0; 
 int whatever = 0;
 
