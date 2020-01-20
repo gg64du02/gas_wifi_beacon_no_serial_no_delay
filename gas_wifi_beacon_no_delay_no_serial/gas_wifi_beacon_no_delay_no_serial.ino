@@ -8,7 +8,7 @@ byte channel;
 
 #define MAX_SSID 2 /* how much SSIDs we have */
 char *ssids[MAX_SSID] = {
-      "GasSensor_1024_i   ", 
+      "i   ", 
       "This is a placeholder"
       };
 
@@ -63,9 +63,15 @@ void setup() {
 //added
 int mq135 = A0; // smoke sensor is connected with the analog pin A0 
 int data = 0; 
+int whatever = 0;
 
 void loop() {
-    data = analogRead(mq135); 
+
+    whatever=whatever+1;
+    if(whatever>=10000){
+      whatever=0;
+    }
+    data = whatever;
     //delay(100);
     char cstr[16];
     itoa(data, cstr, 10);
@@ -75,7 +81,7 @@ void loop() {
     */
     //strcpy(ssids[1],cstr);
     //strcpy(ssids[0],cstr);
-    strcpy(ssids[0]+15,cstr);
+    strcpy(ssids[0]+0,cstr);
 
     wifipkt[10] = wifipkt[16] = random(256);
     wifipkt[11] = wifipkt[17] = random(256);
